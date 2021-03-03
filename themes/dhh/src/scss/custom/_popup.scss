@@ -1,0 +1,167 @@
+.popup {
+  padding: 14px 24px 32px;
+  @include mobile() {
+    padding: 15px;
+  }
+  &__ratingtip {
+    display: block;
+    color: $color-secondary;
+    font-size: rem(12);
+    font-weight: 500;
+    letter-spacing: 1.4px;
+    line-height: lh(14, 12);
+    text-align: center;
+    text-transform: uppercase;
+    margin: -10px 0 39px;
+    @extend .tk-roboto;
+  }
+  &__rate {
+    .ant-btn {
+      width: 100%;
+    }
+  }
+  &__invitefriends {
+    .popup__invite,
+    .popup__invited {
+      padding: 0;
+    }
+    .ant-modal-close-x {
+      display: none;
+    }
+    .ant-card-head-title {
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+    p {
+      margin: 0 0 29px;
+      &.small {
+        color: #939393;
+      }
+    }
+    .ant-form-item {
+      margin: 0 0 9px !important;
+      input {
+        height: 48px;
+      }
+    }
+  }
+  &__edit,
+  &__added,
+  &__updated,
+  &__amend,
+  &__cancel {
+    .ant-btn,
+    .ant-form-item:last-child {
+      width: 182px;
+      margin-right: 8px;
+      display: inline-block;
+      @include mobile {
+        width: 100%;
+        margin: 0 0 10px;
+      }
+    }
+    .ant-form-item {
+      &:last-child {
+        margin: 0;
+        .ant-btn {
+          width: 100%;
+          margin: 0;
+        }
+      }
+    }
+  }
+  &__added,
+  &__updated,
+  &__amended,
+  &__canceled {
+    padding: 0;
+    .popup__title {
+      padding: 39px 0 37px;
+      text-align: center;
+      border-radius: 2px 2px 0 0;
+      background: $color-gray-light;
+      .ant-rate {
+        margin-top: 7px;
+      }
+      .popup__ratingtip {
+        margin: 10px 0 0;
+      }
+    }
+    .ant-btn {
+      @include mobile() {
+        margin: 0 0 10px;
+        width: 100%;
+      }
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+  &__amended,
+  &__canceled {
+    .ant-btn {
+      width: 100%;
+    }
+    .property {
+      margin: 0 0 13px;
+    }
+    p {
+      margin: 0 0 24px;
+      text-align: center;
+    }
+  }
+  &__title {
+    h4 {
+      margin: 0 0 -4px;
+    }
+    p {
+      margin: 0 0 15px;
+    }
+    .property {
+      color: #939393;
+      line-height: lh(19, 16);
+      margin: 0 0 21px;
+      font-weight: 500;
+    }
+  }
+  &__body {
+    padding: 22px 24px 32px;
+    p {
+      margin: 0 0 19px;
+    }
+  }
+  .ant-input {
+    border-radius: 3px;
+  }
+  .ant-form-item-control {
+    text-align: center;
+  }
+  .ant-form-item {
+    margin-bottom: 16px;
+    &:last-child {
+      margin: 0;
+    }
+  }
+  .ant-btn {
+    text-transform: uppercase;
+    height: 48px;
+    span {
+      font-size: rem(14);
+      line-height: lh(16, 14);
+    }
+  }
+}
+
+#amend-booking-form,
+#cancel-booking-form {
+  p {
+    margin: 0 0 21px;
+  }
+  .element.textarea {
+    margin: 0;
+  }
+}

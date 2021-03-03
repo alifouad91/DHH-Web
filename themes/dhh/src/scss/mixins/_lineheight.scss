@@ -1,0 +1,3 @@
+@function lh($lineheight, $fontSize) {
+  @return #{strip-unit($lineheight)/strip-unit($fontSize)};
+}

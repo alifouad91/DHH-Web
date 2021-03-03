@@ -1,0 +1,129 @@
+.page__profile {
+  padding: 82px 0;
+  @include mobile() {
+    padding: 0;
+    > .container-fluid {
+      padding: 0;
+    }
+  }
+  .ant-divider {
+    margin: 0;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 0 21px;
+    @include mobile() {
+      padding: 20px 30px !important;
+      border: 1px solid #f0f0f0;
+      box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.04);
+    }
+    &:hover {
+      .page__profile__header__avatar {
+        opacity: 1;
+      }
+    }
+    &__avatar {
+      text-align: center;
+      position: absolute;
+      z-index: 2;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.21);
+      border-radius: 50%;
+      opacity: 0;
+      @include transition(300ms all);
+      i {
+        color: $color-white;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      span {
+        opacity: 0.64;
+        color: $color-white;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.4px;
+        line-height: 12px;
+        text-align: center;
+      }
+    }
+    > a {
+      margin-left: auto;
+      color: $color-secondary;
+      font-size: rem(16);
+      font-weight: 500;
+      line-height: lh(32, 16);
+    }
+    h1 {
+      margin: 0 0 9px;
+      @include mobile() {
+        font-size: rem(28);
+      }
+      span {
+        color: #cacacb;
+      }
+    }
+    .designation {
+      span {
+        @extend .span;
+        &:last-child {
+          color: #8a939a;
+        }
+      }
+    }
+    .ant-avatar {
+      margin-right: 24px;
+      @include mobile() {
+        margin-right: 15px;
+      }
+    }
+  }
+  &__form {
+    padding-top: 47px;
+    @include mobile() {
+      padding: 0 0 60px;
+    }
+    .ant-form-item {
+      @include mobile() {
+        margin: 0 0 10px;
+      }
+    }
+    > .container-fluid {
+      padding: 32px 0;
+      @include mobile() {
+        padding: 15px;
+      }
+      // border-bottom: 1px solid $color-divider;
+    }
+    div[class^="col"] {
+      > span {
+        line-height: 40px;
+        color: $color-black;
+        @extend .tk-roboto;
+        &.optional {
+          color: #8c9399;
+        }
+      }
+    }
+    .ant-btn {
+      width: 100%;
+      @include mobile() {
+        max-width: calc(100% - 30px);
+        margin: auto;
+        display: block;
+      }
+    }
+    .ant-divider {
+      margin: 8px 0 32px;
+      @include mobile() {
+        margin: 10px 0;
+      }
+    }
+  }
+}

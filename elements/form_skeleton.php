@@ -1,0 +1,1 @@
+<div class="ant-skeleton ant-skeleton-active"><div class="ant-skeleton-content"><h3 class="ant-skeleton-title" style="width: 66%; height: 60px; margin: auto; max-width: 952px;"></h3></div></div>

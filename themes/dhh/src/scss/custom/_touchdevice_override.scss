@@ -1,0 +1,11 @@
+body.is-touch-device {
+  // My properties page
+  .page__myproperties {
+    .property__card__rating {
+      opacity: 1 !important;
+    }
+    .reveal-top-right {
+      transform-origin: top left;
+    }
+  }
+}

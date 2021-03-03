@@ -1,0 +1,10 @@
+$pxToRem: 0.0625; //1px to rem
+@mixin font-rem($px) {
+  font-size: $px + px;
+  font-size: ($px * $pxToRem) + rem;
+}
+
+
+@function rem($px) {
+  @return #{strip-unit($px) * $pxToRem}rem;
+}

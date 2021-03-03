@@ -1,0 +1,7 @@
+// For font sizes
+$browser-context: 16;
+// font-size: em(16px)
+// font-size: em(16)
+@function em($pixels, $context: $browser-context) {
+  @return #{strip-unit($pixels)/$context}em;
+}

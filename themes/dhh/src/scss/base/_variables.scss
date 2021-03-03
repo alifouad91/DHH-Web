@@ -1,0 +1,104 @@
+/* scss variables */
+
+$body-font: 'Montserrat', sans-serif;
+$body-weight-light: 300;
+
+$body-font-size: 20px;
+$body-font-size-large: 18px;
+$body-font-size-medium: 17px;
+$body-font-size-small: 16px;
+$body-font-size-xs: 14px;
+
+$body-font-color: #141414;
+
+// Colors
+$color-white: #ffffff;
+$color-white-50: rgba(255, 255, 255, 0.5);
+$color-white-25: rgba(255, 255, 255, 0.25);
+$color-black: #000000;
+$color-black-light: #e0e0e0;
+$color-black-50: rgba(0, 0, 0, 0.5);
+$color-black-40: rgba(0, 0, 0, 0.4);
+$color-black-25: rgba(0, 0, 0, 0.25);
+$color-gray: #8a939a;
+$color-gray-secondary: #8c9399;
+$color-gray-light: #f7f7f7;
+$color-red: #ff0000;
+
+$color-white: #ffffff;
+
+$color-star: #e64d53;
+
+$color-primary: #fe6768;
+$color-primary-hover: #ff4d4d;
+$color-primary-active: #dc3d3d;
+$color-primary-light: #ffcbcb;
+$color-primary-lighter: #ffeaea;
+
+$color-primary-disabled: #d0d0d0;
+$color-primary-disabled-text: #8e8e8e;
+
+$color-secondary: #e6474d;
+$color-secondary-hover: #e4373d;
+$color-secondary-active: #cc393f;
+$color-secondary-active-bg: #f0f0f0;
+$color-secondary-hover-border: #a1a1a1;
+$color-secondary-focus-border: #e16e73;
+$color-secondary-focus-border-2: #ffcbcb;
+
+$color-link-primary: $color-secondary;
+$color-link-primary-hover: #df2a2a;
+$color-link-secondary: #7c7c7c;
+$color-link-secondary-hover: #3e3e3e;
+$color-link-secondary-visited: #383838;
+
+$color-paragraph: #212121;
+$color-paragraph-secondary: #515151;
+
+$color-footer-bg: #f8f8f9;
+$color-footer-copyright: #484848;
+
+$color-banner-text: #fb5b62;
+$color-banner-circle: #fd5c63;
+
+$color-radio-button-bg: #f2f4f6;
+$color-radio-text: #da3d43;
+$color-radio-button-bg-active: #e6eaed;
+$color-radio-text-active: #18100f;
+
+$color-slider-track: #fd6065;
+
+$color-input-placeholder: #777777;
+$color-input-border: #e6e6e6;
+
+$color-divider: #e2e2e2;
+
+$color-tab-active: #e64b51;
+
+$color-blog-title: #1d1d1d;
+
+$color-card-footer-bg: #f6f7f8;
+
+$color-list-icons: #cdcdcd;
+$color-button-count: #6d6d6d;
+
+$color-fb-button: #3b5998;
+$color-google-button: #007aff;
+
+$color-date-bg: #f3f4f5;
+
+$color-input-hover-border: #333336;
+
+$color-modal-mask: rgba(0, 7, 17, 0.7);
+
+// Transitions
+$transitionEffect: cubic-bezier(0.6, 0.04, 0.12, 0.96);
+
+// Header
+$header-height: 80px;
+$header-height-mobile: 56px;
+$header-breakpoint: 1024;
+
+// Shadow
+$box-shadow-secondary: inset 1px 0 0 0 rgba(0, 0, 0, 0.13);
+$box-shadow: inset 2px 0 0 0 #e8e7ec;

@@ -1,0 +1,1397 @@
+.card {
+  &__gray {
+    height: 100%;
+    background: $color-footer-bg;
+    border-radius: 3px;
+
+    span {
+      color: $color-black;
+      @extend .span;
+    }
+  }
+}
+
+.property {
+  &__card {
+    padding-bottom: 5px;
+
+    @include mobile() {
+      padding: 0 0 20px !important;
+    }
+
+    .sub-header-2 {
+      font-weight: 500;
+      @include ellipsis();
+    }
+
+    cursor: pointer;
+
+    &.my-properties {
+      &:hover,
+      &.show-calendar {
+        .property__card__rating {
+          opacity: 0;
+        }
+
+        .property__card__calendar {
+          opacity: 1;
+        }
+      }
+
+      .ant-card-cover img {
+        height: 350px;
+
+        @include tabletL() {
+          height: 350px;
+
+          @include tabletV() {
+            height: 250px;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .favourites.non-fav {
+        opacity: 1;
+      }
+    }
+
+    .ant-skeleton {
+      .ant-skeleton-title {
+        width: 100% !important;
+        height: 230px;
+      }
+
+      .ant-skeleton-content .ant-skeleton-title + .ant-skeleton-paragraph {
+        margin-top: 0;
+      }
+    }
+
+    .tag-group {
+      position: absolute;
+      top: 12px;
+      left: 10px;
+
+      .ant-tag {
+        position: static;
+        display: inline-block;
+      }
+    }
+
+    .ant-tag {
+      position: absolute;
+      top: 12px;
+      left: 10px;
+      opacity: 0.9;
+      border-radius: 7.5px;
+      background: $color-white;
+      font-size: rem(10);
+      letter-spacing: 0.36px;
+      line-height: lh(12, 10);
+      border: none;
+      height: auto;
+      color: $color-secondary;
+      padding: 2px 5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      @extend .tk-roboto;
+      @include transition(300ms all $transitionEffect);
+
+      &.special {
+        top: 13px;
+        left: 20px;
+        font-size: rem(16);
+        font-weight: 600;
+        letter-spacing: -0.4px;
+        line-height: lh(19, 16);
+        border-radius: 14px;
+        padding: 4px 12px;
+        color: #bec0c7;
+        text-transform: capitalize;
+        @extend .tk-effra;
+
+        &.booked {
+          background: $color-slider-track;
+          color: $color-white;
+        }
+      }
+    }
+
+    .ant-card {
+      &:not(.special):not(.hover-off):hover {
+        img {
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+          transform: translateY(-4px);
+        }
+
+        .ant-tag,
+        .favourites {
+          transform: translateY(-4px);
+        }
+      }
+    }
+
+    .ant-card-cover {
+      img {
+        width: 673px;
+        min-height: 233.72px;
+        // height: 471px;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 3px;
+        @include transition(300ms all $transitionEffect);
+      }
+    }
+
+    .ant-card-body {
+      padding: 10px 0;
+
+      p {
+        margin: 4.5px 0;
+        color: $color-black;
+        font-size: rem(13);
+        letter-spacing: 0.3px;
+        line-height: lh(15, 13);
+
+        &.small {
+          margin-top: 0;
+          opacity: 0.6;
+          margin-bottom: 9px;
+          min-height: 15px;
+        }
+
+        span {
+          opacity: 0.6;
+          @extend .tk-roboto;
+        }
+      }
+    }
+
+    .favourites {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 14px 14px 46px 61px;
+      border-radius: 3px;
+      @include transition(all 300ms $transitionEffect);
+
+      @include tabletV() {
+        opacity: 1 !important;
+      }
+
+      &.fav {
+        opacity: 1;
+      }
+
+      &.non-fav {
+        opacity: 0;
+      }
+    }
+
+    &__calendar {
+      position: absolute;
+      right: 0;
+      bottom: 13px;
+      z-index: 3;
+      opacity: 0;
+      z-index: 99;
+      @include transition(300ms all ease-in-out);
+
+      @include tabletV() {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        opacity: 1;
+      }
+
+      i {
+        margin-left: 20px;
+
+        @include tabletV() {
+          margin: 0 20px 0 0;
+        }
+
+        &:hover,
+        &.active {
+          path {
+            fill: $color-primary-active;
+          }
+        }
+      }
+    }
+
+    &__calendardates {
+      width: 100%;
+      // max-width: 100%;
+      height: 308px;
+      overflow: hidden;
+      border-radius: 3px;
+      box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.04),
+        0 1px 45px 0 rgba(0, 0, 0, 0.08);
+      position: absolute;
+      left: 0;
+      z-index: 3;
+      top: 100%;
+
+      @include tabletV() {
+        transform: none;
+        /* position: relative; */
+        bottom: auto;
+        top: 98%;
+      }
+
+      .DayPicker-NavBar {
+        display: none;
+      }
+
+      .ant-card {
+        width: 100%;
+        height: 100%;
+      }
+
+      .ant-card-body {
+        // overflow-x: auto;
+        padding: 0;
+        height: 100%;
+      }
+    }
+
+    &__rating {
+      position: absolute;
+      right: 0;
+      bottom: 13px;
+      @include transition(300ms all ease-in-out);
+
+      ul {
+        margin: 0;
+      }
+
+      small {
+        color: $color-black;
+      }
+    }
+  }
+
+  &__filter {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    display: block;
+    padding: 16px 0;
+    margin: 0 -40px;
+
+    @include breakpoint(1500) {
+      margin: 0;
+
+      @include tabletV() {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 12;
+        background: $color-white;
+        transform: translateX(100%);
+        overflow-x: hidden;
+        padding: 16px 16px 100px;
+        @include transition(500ms all);
+
+        &.filter-open {
+          transform: translateX(0);
+        }
+
+        .ant-form-item {
+          width: 100%;
+
+          .ant-btn {
+            display: block;
+            width: 100%;
+            height: 48px;
+          }
+        }
+      }
+    }
+
+    .ant-btn {
+      display: none;
+    }
+
+    &__header {
+      display: none;
+
+      @include tabletV() {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      h5 {
+        margin: 0;
+      }
+    }
+
+    &__btns {
+      display: none;
+
+      @include tabletV() {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0 20px;
+
+        .ant-select {
+          padding-right: 6px;
+        }
+
+        .ant-btn {
+          padding-left: 6px;
+        }
+
+        .ant-select,
+        .ant-btn {
+          flex: 1 0 50%;
+          height: 48px;
+
+          .ant-select-selection--single {
+            height: inherit;
+
+            .ant-select-selection__rendered {
+              line-height: 48px;
+            }
+          }
+        }
+      }
+    }
+
+    .ant-form {
+      display: block;
+      // display: flex;
+      // justify-content: flex-start;
+      // align-items: center;
+      width: 100%;
+
+      &-item {
+        margin: 0 16px 24px 0;
+        display: inline-block;
+
+        &:first-of-type {
+          margin-right: 12px;
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -12px;
+            width: 12px;
+            background: $color-input-border;
+            height: 1px;
+          }
+        }
+
+        &-label {
+          display: none;
+
+          @include tabletV() {
+            display: block;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    .ant-slider {
+      min-width: 250px;
+
+      @include tabletV() {
+        min-width: 100%;
+        width: 100% !important;
+      }
+    }
+
+    .range__picker {
+      width: 120px;
+      position: relative;
+      padding-left: 0 !important;
+      padding-right: 16px !important;
+      z-index: 3;
+
+      &:first-of-type {
+        padding-right: 12px !important;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 12px;
+          background: #e6e6e6;
+          height: 1px;
+        }
+      }
+    }
+
+    .DayPickerInput input {
+      @extend .ant-input;
+      // @extend .ant-select-selection;
+    }
+
+    &__formitems {
+      display: inline-block;
+      width: calc(100% - 195px);
+      vertical-align: top;
+
+      .DateRangePicker {
+        margin-right: 16px;
+
+        @include tabletV() {
+          width: 100%;
+          margin: 0 0 16px;
+
+          .DateRangePickerInput {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            .DateInput {
+              flex: 1 0 calc(50% - 6px);
+            }
+          }
+        }
+      }
+
+      @include tabletV() {
+        display: block;
+        width: 100%;
+
+        .ant-form-item {
+          width: 100%;
+
+          &:first-child,
+          &:nth-child(2) {
+            width: calc(50% - 6px);
+            margin: 0 0 16px;
+
+            .ant-calendar-picker {
+              width: 100% !important;
+            }
+          }
+
+          &:first-child {
+            margin-right: 12px;
+          }
+        }
+
+        .ant-radio-group {
+          display: flex;
+
+          label {
+            flex: 1;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    &__slider {
+      position: relative;
+      height: 40px;
+      border: 1px solid $color-input-border;
+      border-radius: 3px;
+      margin-right: 16px;
+      width: 270px;
+      display: inline-block;
+      vertical-align: top;
+
+      @include tabletV() {
+        width: 100%;
+        display: block;
+        margin: 0 0 33px;
+      }
+
+      .ant-form-item {
+        margin: 0 !important;
+
+        @include tabletV() {
+          width: 100% !important;
+        }
+
+        &:before {
+          display: none;
+        }
+      }
+
+      > span {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: rem(14);
+      }
+    }
+
+    &__dropdown {
+      display: inline-block;
+      text-align: right;
+      width: 195px;
+
+      @include tabletV() {
+        width: 100%;
+        text-align: left;
+        display: block;
+      }
+
+      .ant-menu {
+        @include tabletV() {
+          margin: 0 0 27px;
+          border: none;
+
+          li {
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid #eaeaea;
+            background: none !important;
+            line-height: 47px;
+            height: auto;
+
+            label {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            }
+
+            .ant-checkbox {
+              order: 2;
+
+              & + span {
+                padding: 0;
+                font-size: rem(14);
+                line-height: lh(47, 14);
+                font-weight: 400;
+                font-family: "roboto", sans-serif !important;
+              }
+            }
+          }
+        }
+      }
+
+      .ant-dropdown-link {
+        padding: 9px 12px 8px;
+        border: 1px solid $color-input-border;
+        border-radius: 3px;
+        margin-left: 12px;
+        display: inline-block;
+      }
+
+      .ant-form-item {
+        &:before {
+          display: none;
+        }
+
+        &:first-child {
+          margin-right: auto;
+        }
+      }
+    }
+  }
+
+  &__sort {
+    padding: 35px 15px 20px;
+    display: flex;
+    justify-content: flex-start;
+
+    @include tabletV() {
+      display: none;
+    }
+
+    .sort {
+      cursor: pointer;
+      color: $color-secondary;
+
+      &.active {
+        color: $color-black;
+      }
+    }
+
+    span {
+      color: $color-black;
+      margin-right: 25px;
+      @extend .tk-roboto;
+
+      &:last-child {
+        margin-left: auto;
+        margin-right: 0;
+      }
+    }
+
+    .props-found {
+      margin-left: auto;
+    }
+
+    .filters {
+      cursor: pointer;
+    }
+  }
+
+  &__results {
+    min-height: 120px;
+    padding-bottom: 50px;
+
+    @include mobile() {
+      padding-bottom: 30px;
+    }
+
+    .row {
+      // display: flex;
+      // flex-wrap: wrap;
+    }
+  }
+}
+
+.review__card {
+  padding-bottom: 25px;
+
+  &__profile {
+    display: flex;
+    align-items: center;
+
+    .ant-avatar-image,
+    &__info {
+      p {
+        margin: 0;
+        opacity: 0.8;
+        line-height: lh(16, 14) !important;
+
+        &:first-of-type {
+          margin: 3px 0 8px;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  &__text {
+    &:not(.full) {
+      p {
+        overflow: hidden;
+        /* text-overflow: ellipsis; */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+    }
+    p {
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+  }
+
+  &__rating {
+    position: absolute;
+    top: 9px;
+    right: 19px;
+
+    p {
+      margin: 0;
+      line-height: lh(19, 16);
+      display: inline;
+      font-weight: 500;
+      margin-left: 3px;
+    }
+
+    .landlord-details {
+      font-size: rem(12);
+      line-height: lh(16, 12);
+      font-weight: 400;
+      color: $color-secondary;
+      margin-top: 13px;
+      display: block;
+
+      span {
+        color: $color-black;
+      }
+    }
+  }
+
+  .ant-card-body {
+    min-height: 178px;
+    padding: 17px 21px;
+  }
+}
+
+.wrapper {
+  .general__card {
+    border-radius: 2px;
+    background: $color-white;
+    width: 100%;
+    padding: 23px 24px;
+    box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.04),
+      0 1px 45px 0 rgba(0, 0, 0, 0.08);
+
+    @include tabletV() {
+      max-width: 90%;
+    }
+
+    &__title {
+      font-size: rem(16);
+      line-height: lh(22, 16);
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    &__small {
+      max-width: 458px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &__rental {
+      padding: 14px 24px;
+      position: relative;
+      margin-left: auto;
+      margin-top: 88px;
+      z-index: 3;
+      max-width: 440px;
+
+      @include mobile() {
+        margin: 50px auto;
+      }
+
+      h4 {
+        padding: 0 !important;
+      }
+
+      .ant-form {
+        padding: 0 !important;
+      }
+
+      .formidable.submission {
+        p {
+          color: $color-black;
+          text-align: center;
+        }
+      }
+    }
+
+    &__host {
+      max-width: 420px;
+      margin: 30px auto;
+      padding-top: 15px;
+      box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.04),
+        0 1px 45px 0 rgba(0, 0, 0, 0.08);
+
+      p {
+        margin: 5px 0 45px;
+      }
+
+      .ant-form-item {
+        margin-bottom: 10px;
+
+        input {
+          height: 46px;
+        }
+      }
+
+      .ant-form.formidable .ant-form-item-control.default-active {
+        margin-bottom: 34px;
+      }
+
+      .ant-btn {
+        text-transform: uppercase;
+      }
+
+      .ant-form {
+        &.submission {
+          text-align: center;
+
+          .ant-btn {
+            width: auto;
+            display: block;
+            margin: auto;
+          }
+
+          h4 {
+            margin-top: 10px;
+          }
+
+          p {
+            margin: 0 0 20px;
+            line-height: 1.5;
+          }
+
+          img {
+            margin-left: -24px;
+            margin-bottom: 22px;
+          }
+
+          .ant-btn {
+            padding: 15px;
+            margin-bottom: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.landlord__reviews {
+  .row {
+    text-align: center;
+
+    .review__card {
+      display: inline-block;
+      float: none;
+      text-align: left;
+    }
+  }
+}
+
+.booking {
+  &__card {
+    min-height: 160px;
+    margin: 0 0 20px;
+
+    .ant-card {
+      box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.04),
+        0 2px 10px 0 rgba(0, 0, 0, 0.08);
+      border-radius: 3px;
+      border: 1px solid $color-secondary-active-bg;
+    }
+
+    .ant-card-body {
+      padding: 0;
+      display: flex;
+
+      @include tabletV() {
+        flex-direction: column;
+      }
+
+      img {
+        width: 240px;
+        height: 160px;
+        flex: 1;
+
+        @include tabletV() {
+          width: 100%;
+          height: 200px;
+        }
+      }
+    }
+
+    &__actions {
+      margin-top: auto;
+
+      @include mobile() {
+        padding: 15px 15px 0;
+      }
+
+      a {
+        margin-right: 16px;
+        font-weight: 500;
+      }
+
+      .secondary {
+        color: $color-gray-secondary;
+        margin-right: 16px;
+        font-weight: 500;
+        @extend .span;
+      }
+    }
+
+    &__date {
+      padding: 7px 16px;
+      background-color: $color-date-bg;
+      position: absolute;
+      right: 24px;
+      border-radius: 20px;
+      top: 15px;
+
+      @include mobile() {
+        top: 10px;
+        right: 10px;
+      }
+
+      &.done {
+        background: none;
+        border: 1px solid $color-secondary-active-bg;
+      }
+
+      span {
+        color: $color-black;
+        font-size: rem(15);
+        line-height: lh(18, 15);
+        @extend .tk-roboto;
+      }
+
+      em {
+        color: $color-gray;
+        font-style: normal;
+        font-size: rem(15);
+        line-height: lh(18, 15);
+        @extend .tk-roboto;
+      }
+    }
+
+    &__price {
+      position: absolute;
+      bottom: 16px;
+      right: 24px;
+
+      @include mobile() {
+        bottom: auto;
+        right: auto;
+        position: relative;
+        box-shadow: inset 0 -1px 0 0 #e6e6e6, inset 0 1px 0 0 #e6e6e6;
+        padding: 15px;
+      }
+
+      span {
+        font-size: rem(14);
+        line-height: lh(16, 14);
+        @extend .tk-roboto;
+
+        &:first-child {
+          color: $color-gray-secondary;
+          font-weight: 500;
+          margin-right: 6px;
+        }
+
+        &:last-child {
+          color: #333333;
+          font-weight: 900;
+          letter-spacing: -0.4px;
+        }
+      }
+    }
+
+    &__details {
+      // flex: 1;
+      padding: 15px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: calc(100% - 240px);
+
+      @include tabletV() {
+        width: 100%;
+      }
+
+      @include mobile() {
+        padding: 12px 0 20px;
+      }
+
+      h5 {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 160px;
+
+        @include tabletV() {
+          padding-right: 0;
+        }
+      }
+
+      h5,
+      p {
+        margin: 0;
+
+        @include mobile() {
+          padding: 0 15px;
+        }
+      }
+
+      p {
+        color: $color-gray-secondary;
+        margin: 3px 0 12px;
+        font-size: rem(14);
+        line-height: lh(16, 14);
+      }
+
+      .property__card__rating {
+        position: relative;
+
+        @include mobile() {
+          padding: 0 15px;
+        }
+
+        .ant-rate .ant-rate-star {
+          width: 13px;
+        }
+
+        small {
+          font-size: rem(14);
+          font-weight: 500;
+          line-height: lh(16, 14);
+        }
+
+        .guest {
+          margin: 0 8px 0 20px;
+        }
+
+        span {
+          color: $color-black;
+          font-size: rem(14);
+          line-height: lh(16, 14);
+          @extend .tk-roboto;
+        }
+      }
+    }
+  }
+}
+
+.myreview {
+  &__card {
+    margin: 0 0 32px;
+    padding: 27px 0 0 !important;
+    display: flex;
+    cursor: default;
+
+    @include mobile() {
+      flex-direction: column;
+    }
+
+    &:not(:first-of-type) {
+      box-shadow: inset 0 1px 0 0 #bdbfc0;
+    }
+
+    &:hover {
+      // cursor: pointer;
+      .myreview__card__buttons {
+        opacity: 1;
+      }
+    }
+
+    &.property {
+      max-width: 788px;
+
+      &:hover {
+        cursor: normal;
+      }
+
+      h5 {
+        font-size: rem(16);
+        line-height: lh(19, 16);
+      }
+
+      .image {
+        width: 208px;
+        margin-right: 24px;
+
+        @include tabletV() {
+          flex: 1 0 40%;
+          margin-right: 15px;
+
+          @include mobile() {
+            flex: 1 0 100%;
+            margin: 0;
+            width: 100%;
+          }
+        }
+
+        img {
+          height: 150px;
+          width: 100%;
+          border-radius: 3px;
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        p {
+          margin: 7px 0 0;
+          font-weight: 500;
+          @include ellipsis();
+        }
+
+        .property__card__rating {
+          position: relative;
+        }
+      }
+
+      .myreview__card__details {
+        .avatar {
+          display: flex;
+          align-content: center;
+          justify-content: flex-start;
+          margin-bottom: 5px;
+
+          > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+        }
+
+        .ant-avatar {
+          margin-right: 12px;
+        }
+      }
+
+      .myreview__card__date {
+        margin: 0;
+      }
+
+      .myreview__card__rating > div {
+        margin-top: -30px;
+      }
+    }
+
+    > img {
+      height: 150px;
+      width: 208px;
+      margin-right: 24px;
+      border-radius: 3px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+
+      @include mobile() {
+        width: 100%;
+        height: 200px;
+      }
+    }
+
+    &__details {
+      h5 {
+        margin: 0 0 3px;
+        padding-right: 120px;
+        @include ellipsis();
+
+        @include mobile() {
+          margin: 15px 0 0;
+          padding: 0;
+        }
+      }
+
+      .small {
+        margin: 0 0 14px;
+        color: $color-gray-secondary;
+      }
+
+      p:not(.small) {
+        margin: 0;
+        font-size: rem(14);
+        line-height: lh(24, 14);
+      }
+    }
+
+    &__reviewdate {
+      color: $color-black;
+      display: block;
+      text-transform: uppercase;
+      font-size: rem(12);
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      line-height: lh(14, 12);
+      margin: 17px 0 13px;
+      @extend .tk-roboto;
+    }
+
+    &__date {
+      margin: 0 0 16px;
+
+      span {
+        color: $color-black;
+        font-size: rem(14);
+        line-height: lh(16, 14);
+        @extend .tk-roboto;
+      }
+
+      em {
+        color: $color-gray;
+        font-style: normal;
+        font-size: rem(14);
+        line-height: lh(16, 14);
+        @extend .tk-roboto;
+      }
+    }
+
+    &__rating {
+      position: absolute;
+      top: 27px;
+      right: 0;
+      padding: 7px 8px 0;
+      background: $color-date-bg;
+      border-radius: 3px;
+      min-width: 120px;
+
+      @include mobile() {
+        border-radius: 0 3px 0 3px;
+      }
+
+      span {
+        color: $color-gray;
+        font-size: rem(14);
+        line-height: lh(16, 14);
+        @extend .tk-roboto;
+      }
+
+      > div {
+        margin-top: -16px;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+        span {
+          color: $color-black;
+          font-size: rem(48);
+          line-height: lh(57, 48);
+          margin-left: 16px;
+
+          @include mobile() {
+            font-size: 2.5rem;
+          }
+        }
+      }
+    }
+
+    &__buttons {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      opacity: 0;
+      @include transition(300ms all $transitionEffect);
+
+      @include mobile() {
+        opacity: 1;
+        position: relative;
+      }
+
+      .ant-btn {
+        margin-left: 8px;
+
+        @include mobile() {
+          width: 100%;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+.utility__card {
+  width: 100%;
+  max-width: 904px;
+  height: 160px;
+  border-radius: 3px;
+  border-color: $color-secondary-active-bg;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.04), 0 2px 10px 0 rgba(0, 0, 0, 0.08);
+  margin: 0 0 20px;
+
+  @include mobile() {
+    height: auto;
+  }
+
+  &:hover {
+    transform: translateY(-3px) !important;
+  }
+
+  h5 {
+    font-size: rem(20);
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    line-height: lh(24, 20);
+    margin: 0;
+
+    span {
+      color: $color-gray-secondary;
+    }
+  }
+
+  p {
+    margin: 6px 0 0;
+  }
+
+  .ant-card-body {
+    height: 100%;
+    padding: 18px 20px;
+    display: flex;
+
+    @include mobile() {
+      flex-direction: column;
+    }
+
+    > object {
+      width: 208px;
+      height: 142px;
+      opacity: 0.5;
+      margin: 0 24px 0 0;
+
+      @include mobile() {
+        margin: 0 0 15px;
+        width: 100%;
+        height: 250px;
+      }
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__amount {
+    margin-top: auto;
+    font-weight: 900;
+    color: $color-paragraph;
+    font-size: rem(13);
+    letter-spacing: 0.37px;
+    @extend .tk-roboto;
+
+    span {
+      color: $color-paragraph;
+      font-size: rem(22);
+      font-weight: 900;
+      letter-spacing: -0.4px;
+      line-height: lh(25, 22);
+      margin-left: 4px;
+      @extend .tk-roboto;
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    right: 15px;
+    bottom: 13px;
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-right: 15px;
+    }
+
+    i {
+      color: $color-gray-secondary;
+      padding: 5px;
+
+      &:hover {
+        path {
+          fill: #fd4c59;
+        }
+      }
+    }
+  }
+
+  &__billing {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    color: $color-gray-secondary;
+    @extend .span;
+
+    @include mobile() {
+      top: auto;
+    }
+
+    span {
+      color: $color-paragraph;
+      @extend .span;
+    }
+  }
+}
+
+.landlord__reviews {
+  min-height: 190px;
+}

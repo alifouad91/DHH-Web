@@ -1,0 +1,74 @@
+.uk-button {
+  line-height: 1;
+  height: auto;
+  padding: 12px 16px;
+  letter-spacing: 0.4px;
+  font-weight: 500;
+  text-transform: capitalize;
+  &.disabled,
+  &[disabled] {
+    &:hover,
+    &:focus,
+    &:active {
+      background: inherit;
+      border-color: inherit;
+      color: inherit;
+    }
+  }
+  &-primary {
+    background: $color-primary;
+    color: $color-white;
+    border: none;
+    font-size: 14px;
+    line-height: 16px;
+    &:hover {
+      background: $color-primary-hover;
+      border-color: transparent;
+    }
+    &:active,
+    &.active {
+      background: $color-primary-active;
+      border-color: transparent;
+    }
+    &:focus {
+      background: $color-primary;
+      border: 3px solid $color-primary-light;
+    }
+    &.disabled,
+    &[disabled] {
+      background: $color-primary-disabled;
+    }
+  }
+  &-secondary {
+    background: $color-white;
+    border-color: $color-primary-disabled;
+    color: $color-secondary;
+    &:hover {
+      background: inherit;
+      color: $color-secondary-hover;
+      border-color: $color-secondary-hover-border;
+    }
+    &:active,
+    &.active {
+      background: $color-secondary-active-bg;
+      color: $color-secondary-active;
+      border-color: transparent;
+    }
+    &:focus {
+      color: $color-secondary;
+      border: none;
+      box-shadow: 0 0 0 3px $color-secondary-focus-border-2,
+        inset 0 0 0 1px $color-secondary-focus-border;
+    }
+    &.disabled,
+    &[disabled] {
+      background: $color-white;
+      border-color: $color-secondary-hover-border;
+      color: $color-primary-disabled-text;
+    }
+  }
+  &-large {
+    padding: 16px;
+    text-transform: uppercase;
+  }
+}

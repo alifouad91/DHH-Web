@@ -1,0 +1,152 @@
+%block-margins {
+  margin: 1em 0;
+}
+
+%heading-margins {
+  margin: 1em 0 0.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: $color-black;
+}
+
+.fancybox-inner,
+.ant-modal-content,
+.wrapper {
+  /* headings */
+  h1 {
+    line-height: 0.92;
+    font-weight: 900;
+    letter-spacing: -1px;
+    font-size: rem(48);
+  }
+  h2 {
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -0.4px;
+    font-size: rem(44);
+  }
+  h3 {
+    line-height: 1.375;
+    font-weight: 900;
+    letter-spacing: -0.36px;
+    font-size: rem(32);
+  }
+  h4 {
+    line-height: 1.72;
+    font-weight: 900;
+    letter-spacing: -0.4px;
+    font-size: rem(28);
+  }
+  h5 {
+    line-height: 1.23;
+    font-weight: 700;
+    letter-spacing: 0;
+    font-size: rem(22);
+  }
+
+  h6 {
+    line-height: 1px;
+    font-weight: 900;
+    line-height: 0.73;
+    font-size: rem(18);
+  }
+
+  .sub-header-1 {
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.4;
+    display: block;
+    color: $color-black;
+    font-size: rem(20);
+  }
+  .sub-header-2 {
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.1875;
+    display: block;
+    color: $color-black;
+    font-size: rem(16);
+  }
+  .large-text {
+    font-weight: 900;
+    font-size: rem(52);
+    line-height: lh(48, 52);
+    color: $color-white;
+    letter-spacing: -1px;
+    @extend .tk-effra;
+  }
+  .sub-text {
+    font-size: rem(14);
+    line-height: lh(16, 14);
+    color: $color-black;
+    @extend .tk-roboto;
+  }
+  // Others
+  p,
+  ul,
+  ol,
+  pre {
+    @extend %block-margins;
+  }
+
+  p {
+    font-size: rem(16);
+    line-height: lh(28, 16);
+    color: $color-paragraph;
+    @extend .tk-roboto;
+    &.small {
+      font-size: rem(14);
+      line-height: lh(24, 14);
+    }
+    &.large {
+      @extend .tk-effra;
+      font-weight: 500;
+      font-size: rem(22);
+      line-height: lh(32, 22);
+    }
+  }
+
+  small {
+    font-weight: 700;
+    font-size: rem(10);
+    line-height: lh(11, 10);
+    @extend .tk-roboto;
+  }
+
+  .span {
+    font-size: rem(14);
+    line-height: lh(16, 14);
+    @extend .tk-roboto;
+  }
+
+  .span-sml-label {
+    color: $color-black;
+    font-size: rem(12);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    line-height: lh(48, 12);
+    @extend .tk-roboto;
+  }
+  .span-big-label {
+    color: #babbbd;
+    font-size: rem(45);
+    font-weight: 300;
+    letter-spacing: -4px;
+    line-height: lh(48, 45);
+    @extend .tk-effra;
+  }
+  .span-big-label-sub {
+    font-size: rem(18);
+    line-height: lh(48, 18);
+    letter-spacing: 0;
+    font-weight: 400;
+    @extend .span-big-label;
+  }
+}

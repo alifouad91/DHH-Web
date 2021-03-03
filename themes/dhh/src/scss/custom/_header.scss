@@ -1,0 +1,689 @@
+.header {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: z('site-header');
+  height: $header-height;
+  background: $color-white;
+  border-bottom: 1px solid $color-black-light;
+  overflow: hidden;
+  @include transition(all 0.4s ease);
+  @include tabletV() {
+    height: $header-height-mobile;
+    > .container-fluid {
+      padding-right: 0;
+    }
+  }
+  &.top {
+    top: -$header-height;
+    position: fixed;
+    box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.1);
+    @include tabletV() {
+      top: -$header-height-mobile;
+    }
+  }
+  &.sticky {
+    top: 0px !important;
+  }
+  &.login,
+  &.register,
+  &.become-host {
+    border: none;
+  }
+  &.site-is-mobile {
+    height: $header-height-mobile;
+    > .container-fluid {
+      padding-right: 0;
+    }
+    .mobile-menu-icon {
+      display: block;
+    }
+    .flex-center-left-horizontal {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+  > .page__limit {
+    @include tabletV() {
+      padding: 0;
+      .row {
+        margin: 0;
+        > div {
+          padding-left: 15px;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+  .ant-input-affix-wrapper {
+    margin-left: 35px;
+    @include tabletV() {
+      margin-left: 15px;
+      height: $header-height-mobile;
+      // margin-right: 15px;
+      border-radius: 0;
+      border: 1px solid #eaeaea;
+      border-width: 0 1px;
+      input {
+        background: none;
+        border-radius: 0;
+      }
+    }
+  }
+  .container-fluid,
+  .row,
+  .row > div,
+  .header__logo {
+    height: 100%;
+  }
+  .register-label {
+    opacity: 0.5;
+    color: $color-black;
+    margin-right: 16px;
+    @extend .span;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    &.mobile {
+      height: auto;
+      margin-top: 10px;
+      h6 {
+        padding-left: 0;
+      }
+    }
+    h6 {
+      padding: 0 8px 0 20px;
+      display: inline-block;
+      margin: 0;
+    }
+    h5 {
+      margin: 0;
+      font-size: rem(18);
+      line-height: lh(14, 18);
+      font-weight: 400;
+      color: $body-font-color;
+      opacity: 0.4;
+    }
+  }
+  &__nav {
+    display: flex;
+    padding: 0;
+    margin: 0 !important;
+    list-style: none;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    li {
+      margin: 0 16px;
+      display: flex;
+      align-items: center;
+      a {
+        font-size: rem(14);
+        line-height: lh(19, 14);
+        font-weight: 500;
+        color: $color-paragraph !important;
+        @extend .tk-roboto;
+        @include laptopXs() {
+          text-align: center;
+        }
+        &:hover,
+        &.active {
+          color: $color-primary !important;
+        }
+      }
+    }
+  }
+  &__banner {
+    padding-top: $header-height;
+    height: calc(504px + #{$header-height});
+    background-size: cover;
+    background-position: right bottom;
+    text-align: center;
+    @extend .flex-center;
+    @include tabletV() {
+      padding-top: $header-height-mobile;
+    }
+    &__primary {
+      min-height: calc(504px + #{$header-height});
+      height: 50vw;
+      background-image: linear-gradient(to bottom, #ececec 0%, #f7f3f3 100%);
+      position: relative;
+      @include tabletV() {
+        height: auto;
+        background-image: url(../images/mobile-image.jpg);
+        background-position: center;
+        background-size: cover;
+      }
+      .ant-input-affix-wrapper {
+        // margin-left: 25px;
+        max-width: 411px;
+        @include tabletV() {
+          max-width: 100%;
+          margin: 0;
+        }
+      }
+      .form {
+        max-width: 977px;
+        display: block;
+        margin: 0 auto;
+        // box-shadow: $box-shadow-secondary;
+        &__element {
+          padding: 0 !important;
+          @include tabletV() {
+            // &.range__picker {
+            //   padding-right: 5px !important;
+            //   input {
+            //     font-size: rem(14) !important;
+            //     padding: 0;
+            //   }
+            // }
+          }
+        }
+        .ant-select-selection__placeholder {
+          font-size: rem(16);
+        }
+        .ant-form-item {
+          @include tabletV() {
+            margin: 0 !important;
+          }
+        }
+        .DateRangePicker {
+          width: 100%;
+          @include tabletV() {
+            padding-bottom: 8px;
+          }
+          &_picker {
+            top: 63px !important;
+          }
+          > div,
+          .DateRangePickerInput {
+            width: 100%;
+          }
+          .DateRangePickerInput {
+            display: flex;
+            background: none;
+            .DateInput {
+              flex: 1 0 50%;
+              @include tabletV() {
+                flex: 1 0 calc(50% - 3px);
+                &:first-child {
+                  margin-right: 6px;
+                }
+              }
+              input {
+                height: 60px;
+                border-radius: 0;
+                &:focus,
+                &:focus-within {
+                  box-shadow: $box-shadow !important;
+                }
+                @include tabletV() {
+                  &:focus,
+                  &:focus-within {
+                    box-shadow: none !important;
+                  }
+                }
+              }
+              &:last-of-type {
+              }
+            }
+            .DateRangePickerInput_arrow {
+              display: none;
+            }
+          }
+        }
+
+        input {
+          font-size: rem(16);
+          &::placeholder {
+            color: $color-black;
+            opacity: 0.4;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 400;
+          }
+          @include tabletV() {
+            border-radius: 2px;
+          }
+        }
+        button {
+          width: 100%;
+          height: 60px;
+          border-radius: 0 2px 2px 0;
+          span {
+            font-size: rem(14) !important;
+            line-height: lh(16, 14) !important;
+            font-weight: 500;
+          }
+        }
+      }
+      h1 {
+        // margin-bottom: 32px;
+        // color: #220c00;
+        color: #fff;
+        font-size: rem(54);
+        font-weight: 900;
+        letter-spacing: -1px;
+        line-height: 1.8;
+        margin: 0 0 25px;
+        @include tabletV() {
+          font-size: rem(40);
+          line-height: 1;
+          // color: #220c00;
+        }
+      }
+      .sub-header-2 {
+        // margin-top: auto;
+        text-align: left;
+        max-width: 200px;
+        // padding-left: 36px;
+        color: $color-white;
+        position: absolute;
+        bottom: 50px;
+        // color: $color-black;
+        @include tabletV() {
+          display: block;
+          margin-top: auto;
+          position: relative;
+          bottom: auto;
+          padding: 0;
+          text-align: center;
+          max-width: 100%;
+          padding: 65px 0 0;
+          color: #9b9ba1;
+        }
+      }
+      .ant-form-item {
+        &:first-of-type {
+          input {
+            box-shadow: none;
+          }
+        }
+      }
+      input {
+        border: none;
+        padding: 20px 16px;
+        font-size: rem(16);
+        line-height: lh(20, 16);
+        @extend .tk-roboto;
+        @include placeholder($color-black-40, 20px, 'roboto');
+      }
+      .ant-input,
+      .ant-select-selection--single {
+        box-shadow: $box-shadow;
+        @include tabletV() {
+          box-shadow: none;
+        }
+      }
+      > .page__limit {
+        display: flex;
+        flex-direction: column;
+        // padding-top: 140px;
+        z-index: 2;
+        justify-content: center;
+        @include tabletV() {
+          padding-top: 78px;
+          padding-bottom: 20px;
+        }
+      }
+    }
+    &__secondary {
+      height: 568px;
+      text-align: left;
+      background: linear-gradient(180deg, #e3e3e5 0%, #f6f3f3 100%);
+      background-size: cover;
+      background-position: right;
+      @include laptopSm() {
+        height: auto;
+        padding-bottom: 50px;
+        @include tabletV() {
+          padding-bottom: 0;
+        }
+      }
+      #listing-form {
+        margin-top: 48px;
+        max-width: 440px;
+        margin-left: 25px;
+        @include tabletV() {
+          margin: 50px auto;
+          @include mobile() {
+            margin: 0px 0 50px;
+          }
+        }
+        .ant-btn-secondary {
+          margin-top: 16px;
+        }
+        .ant-card {
+          box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.04),
+            0 1px 45px 0 rgba(0, 0, 0, 0.08);
+        }
+      }
+      .header-title {
+        > div {
+          margin-left: 30px;
+          @include mobile() {
+            margin: 0;
+          }
+        }
+        p {
+          font-size: rem(20);
+          line-height: lh(32, 20);
+        }
+      }
+      &.rental {
+        h1,
+        p {
+          color: $color-white;
+        }
+      }
+      .ant-card-body {
+        padding: 0;
+        // padding: 14px 24px;
+      }
+      .ant-card-footer {
+        padding-top: 20px;
+      }
+      .ant-btn {
+        margin-top: 10px;
+        padding: 13px 0;
+        text-transform: uppercase;
+        span {
+          font-size: rem(14);
+          font-weight: 500;
+          letter-spacing: 0.4px;
+          line-height: lh(16, 14);
+        }
+      }
+      h1 {
+        margin-top: 141px;
+        font-size: rem(54);
+        padding: 0 0 5px;
+        @include mobile() {
+          margin: 50px 0 0;
+          font-size: 3rem;
+        }
+        img {
+          max-width: 50px;
+          margin-top: -17px;
+          margin-left: 9px;
+        }
+      }
+      h4 {
+        padding: 14px 24px 0;
+        margin: 0;
+        @include tabletV() {
+          line-height: 1;
+        }
+      }
+      .ant-form {
+        padding: 12px 24px 22px;
+        &-item {
+          margin-bottom: 19px;
+        }
+      }
+      .ant-radio-group {
+        width: 100%;
+        display: flex;
+        .ant-radio-button-wrapper {
+          flex: 1;
+          text-align: center;
+        }
+      }
+      .ant-select-selection--single {
+        height: 40px;
+      }
+      .ant-select-selection__rendered {
+        line-height: 39px;
+      }
+      .ant-card-footer {
+        &-content {
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-end;
+          span {
+            line-height: 1;
+            color: $color-black;
+            @extend .tk-roboto;
+            &:first-child {
+              font-weight: 500;
+              font-size: rem(16);
+            }
+            &:nth-child(2) {
+              margin-left: auto;
+              font-size: rem(12);
+              font-weight: 900;
+              letter-spacing: 0.34px;
+              text-transform: uppercase;
+              margin-right: 6px;
+            }
+            &:last-child {
+              font-size: rem(24);
+              font-weight: 900;
+              line-height: 0.75;
+            }
+          }
+        }
+      }
+      .page__limit {
+        padding: 0;
+      }
+    }
+  }
+  .ant-divider,
+  .ant-divider-vertical {
+    height: 24px;
+    top: 0;
+  }
+  #navigation__form {
+    @include tabletV() {
+      margin: 0;
+    }
+  }
+}
+.navigation {
+  &__form {
+    &__notifications {
+      margin: 5px 24px 0 0;
+      position: relative;
+      .ant-dropdown-link {
+        > i.unread g {
+          fill: $color-primary;
+        }
+        .ant-badge-status-dot {
+          border: 2px solid $color-white;
+          height: 7px;
+          width: 7px;
+          position: absolute;
+          top: -5px;
+          right: 8px;
+          background: $color-primary;
+        }
+      }
+    }
+    &__buttons {
+      margin-left: 0;
+      display: flex;
+      align-items: center;
+      @include mobile() {
+        flex-direction: column;
+        width: 100%;
+        .ant-btn {
+          height: 40px;
+          width: 100%;
+        }
+      }
+      a {
+        flex: 1;
+        vertical-align: middle;
+        margin: 0 0 0 10px;
+        @include tabletV() {
+          margin: 0 5px;
+          @include mobile() {
+            width: 100%;
+            margin: 0 0 8px;
+          }
+        }
+      }
+      button {
+        width: 85px;
+        padding: 12px 0;
+        @include tabletV() {
+          width: 100%;
+        }
+        span {
+          font-size: rem(14) !important;
+          line-height: lh(16, 14) !important;
+          font-weight: 500;
+        }
+      }
+    }
+    &__icons {
+      margin: 0 11px;
+    }
+    &__currency {
+      margin-right: 24px;
+      min-width: 50px;
+      @include laptopXs() {
+        margin-right: 0;
+      }
+      @include tabletV() {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 48px;
+        height: 56px;
+      }
+      &__label {
+        display: none;
+        @include tabletV() {
+          display: block;
+          font-size: rem(16);
+          color: #a1a1a1;
+          letter-spacing: 0;
+          line-height: lh(19, 16);
+        }
+      }
+    }
+  }
+}
+.mobile-menu.is-mobile {
+  padding: 15px;
+  // &.is-mobile {
+  // @include tabletV() {
+  position: fixed;
+  top: $header-height-mobile;
+  width: 100%;
+  height: calc(100vh - #{$header-height-mobile});
+  z-index: 222;
+  display: block;
+  background: $color-white;
+  left: 0;
+  transform: translateX(100%);
+  transition: 500ms all;
+  overflow: hidden;
+  overflow-y: auto;
+  &.open {
+    transform: translateX(0);
+  }
+  &:not(.logged-in) {
+    .header__nav li a:not(.ant-dropdown-link) {
+      font-size: rem(24);
+      color: $color-paragraph;
+      letter-spacing: 0;
+      line-height: lh(44, 24);
+    }
+  }
+  .mobile__curency {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-width: 1px 0;
+    margin: 0 0 50px;
+    > span {
+      color: #a1a1a1;
+      font-size: rem(16);
+      font-weight: 400;
+      @extend .tk-roboto;
+    }
+    a {
+      color: $color-black;
+    }
+  }
+  .header__nav {
+    display: block;
+    margin-top: 150px !important;
+    &.logged-in {
+      margin-top: 0 !important;
+    }
+    li {
+      display: block;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      a {
+        font-size: rem(14);
+        line-height: 44px;
+        flex: 1 0 80%;
+        text-align: left;
+      }
+      span {
+        font-weight: 400;
+        font-family: 'roboto', sans-serif !important;
+      }
+    }
+    .ant-divider {
+      display: block;
+      height: 1px;
+      width: 100%;
+      min-width: 100%;
+      margin: 7px 0;
+      clear: both;
+    }
+  }
+  // }
+  &.logged-in {
+    .header__logo {
+      display: none;
+    }
+  }
+  .navigation__form__buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    > a {
+    
+      width: 100%;
+      .ant-btn {
+        width: 100%;
+      }
+    }
+  }
+}
+.mobile-menu-icon {
+  text-align: right;
+  // display: none;
+  position: relative;
+  @include tabletV() {
+    // display: block;
+    flex: 1 0 55px;
+    margin-top: 6px;
+  }
+  &.has-notif {
+    &:before {
+      content: '';
+      background: $color-slider-track;
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      top: 13px;
+      right: 12px;
+      border-radius: 50%;
+    }
+  }
+}

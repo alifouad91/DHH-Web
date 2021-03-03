@@ -1,0 +1,21 @@
+@import "functions";
+@import "arrows";
+@import "border-radius";
+@import "em";
+@import "fonts";
+@import "keyframes";
+@import "media-query";
+@import "placeholder";
+@import "pseudo";
+@import "responsive";
+@import "transform";
+@import "transitions";
+@import "z-index";
+@import "rem";
+@import "lineheight";
+
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

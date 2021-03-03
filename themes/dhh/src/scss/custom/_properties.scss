@@ -1,0 +1,836 @@
+.page__propertydetails {
+  padding-bottom: 120px;
+  &__fav {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    bottom: 120px;
+    left: 40px;
+    cursor: pointer;
+    @include tabletV() {
+      bottom: auto;
+      top: 20px;
+      right: 20px;
+      left: auto;
+    }
+  }
+  &__mobile-book {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    background: $color-white;
+    width: 100%;
+    padding: 5px 15px;
+    box-shadow: 0 -6px 12px 0 rgba(0, 0, 0, 0.04),
+      0 -1px 45px 0 rgba(0, 0, 0, 0.08);
+    @include tabletV() {
+      display: flex;
+      justify-content: space-between;
+    }
+    .ant-btn {
+      height: 53px;
+      width: 205px;
+    }
+    h5 {
+      margin: 0;
+      font-size: rem(24);
+      line-height: lh(33, 24);
+    }
+    > div {
+      span {
+        color: #606060;
+        font-size: rem(14);
+        line-height: lh(20, 14);
+        @extend .tk-roboto;
+      }
+    }
+  }
+  &__slider {
+    min-height: 552px;
+    position: relative;
+    @include mobile() {
+      height: 280px;
+      min-height: 280px;
+    }
+    .ant-spin {
+      width: 100%;
+      @include centerY();
+    }
+  }
+  &__wrapper {
+    padding: 0 0 33px;
+    max-width: 1250px;
+    margin: auto;
+  }
+  &__main {
+    @include mobile() {
+      padding: 0 15px !important;
+    }
+    .breadcrumb__share {
+      display: none;
+      @include mobile() {
+        display: flex;
+        margin: 0 -15px;
+      }
+    }
+  }
+  &__map {
+    // height: 525px;
+    display: block;
+    width: 100%;
+    position: relative;
+    h6 {
+      color: $color-blog-title;
+      font-size: rem(16);
+      font-weight: bold;
+      line-height: lh(20, 16);
+      margin: 0 0 2px;
+      @include mobile() {
+        padding: 0;
+      }
+    }
+    &__google {
+      height: 525px;
+      position: relative;
+      @include mobile() {
+        height: 400px;
+        margin: 0 -15px;
+      }
+    }
+    &__features {
+      display: flex;
+      // justify-content: space-between;
+      // align-items: center;
+      margin: 0 0 17px;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      @include mobile() {
+        padding: 0;
+      }
+      > div {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        i {
+          margin-right: 4px;
+        }
+        b,
+        span {
+          line-height: lh(24, 14);
+          @extend .span;
+        }
+        b {
+          padding: 0 4px;
+        }
+      }
+      > span {
+        color: $color-blog-title;
+        // display: inline-block;
+        max-width: 65%;
+        line-height: lh(24, 14);
+        max-width: 100%;
+        display: block;
+        margin: 0 0 10px;
+        @extend .span;
+        // @include breakpoint(1260) {
+
+        // }
+      }
+    }
+  }
+  &__viewphotos {
+    position: absolute;
+    left: 35px;
+    bottom: 120px;
+    z-index: 2;
+    width: 92px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 18px 0 rgba(0, 0, 0, 0.3),
+      0 2px 30px 0 rgba(0, 0, 0, 0.24);
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    bottom: 45px;
+    left: 360px;
+    @include tabletV() {
+      bottom: 43px;
+      height: 57px;
+      @include mobile() {
+        display: none;
+      }
+    }
+    &:before {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 7, 17, 0.64);
+      @include pseudo();
+    }
+    span {
+      color: $color-white;
+      z-index: 2;
+      opacity: 0.82;
+      font-size: rem(14);
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      line-height: lh(20, 14);
+      text-align: center;
+      @extend .tk-roboto;
+    }
+  }
+  &__content {
+    padding: 33px 0;
+    @include mobile() {
+      padding: 17px 0;
+    }
+    .ant-divider {
+      margin: 22px 0 7px;
+      @include mobile() {
+        margin: 22px 0 14px;
+      }
+    }
+    .anticon {
+      color: $color-list-icons;
+      padding: 0 15px 0 0;
+      img {
+        width: 16px;
+      }
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      @include mobile() {
+        margin: 0 0 6px;
+      }
+      li {
+        padding: 0;
+        color: #1d1d1d;
+        font-size: rem(14);
+        font-weight: 500;
+        line-height: lh(32, 14);
+        @extend .tk-roboto;
+        display: flex;
+        align-items: center;
+      }
+    }
+    h6 {
+      color: $color-blog-title;
+      font-size: rem(16);
+      font-weight: 900;
+      line-height: lh(20, 16);
+      margin: 0 0 10px;
+      @include mobile() {
+        margin: 0 0 8px;
+      }
+      span {
+        color: #8f969c;
+        font-weight: 400;
+        font-size: rem(16);
+        line-height: lh(20, 16);
+      }
+    }
+    p {
+      color: $color-blog-title;
+      @include mobile() {
+        margin: 0 0 16px;
+      }
+    }
+    &__apartmentType {
+      color: $color-secondary;
+      font-size: rem(14);
+      font-weight: 500;
+      line-height: lh(16, 14);
+      @include mobile() {
+        font-size: rem(12);
+        line-height: lh(14, 12);
+      }
+    }
+    &__title {
+      margin: 2px 0 6px;
+      @include mobile() {
+        font-size: rem(32) !important;
+        line-height: 1 !important;
+      }
+    }
+    &__location {
+      opacity: 0.7;
+      color: $color-blog-title;
+      font-size: rem(20);
+      line-height: lh(24, 20);
+      font-weight: 400;
+      @extend .tk-roboto;
+      @include mobile() {
+        font-size: rem(18);
+        line-height: lh(24, 18);
+      }
+    }
+    &__others {
+      color: $color-blog-title;
+      font-size: rem(14);
+      line-height: lh(24, 14);
+      margin: 0 0 43px;
+      display: block;
+      @extend .tk-roboto;
+      @include mobile() {
+        margin: 0 0 34px;
+      }
+    }
+  }
+  &__forms {
+    @include tabletV() {
+      position: fixed;
+      top: $header-height-mobile;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - #{$header-height-mobile});
+      background: $color-white;
+      z-index: 11;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      @include transition(300ms all $transitionEffect);
+      padding-bottom: 100px;
+      overflow-y: auto;
+      &.open {
+        transform: translateX(0);
+      }
+      .breadcrumb__share {
+        display: none;
+      }
+    }
+    > div {
+      &.active {
+        position: fixed;
+        top: 65px;
+        z-index: 2;
+        .card__secondary {
+          margin-top: 10px;
+        }
+        .breadcrumb__share {
+          margin-top: 10px;
+        }
+      }
+    }
+    &__close {
+      display: none;
+      @include tabletV() {
+        display: block;
+        width: 100%;
+        height: 40px;
+        text-align: right;
+        margin: 10px 0 0;
+        i {
+          font-size: 24px;
+          line-height: 40px;
+        }
+      }
+    }
+    .ant-calendar-picker,
+    .ant-form-item-children,
+    .ant-btn {
+      width: 100%;
+    }
+    .ant-form {
+      margin-top: 18px;
+    }
+    .ant-input {
+      text-align: right;
+      padding-right: 32px;
+    }
+    .ant-form-item {
+      position: relative;
+      margin-bottom: 16px;
+      padding: 0;
+      &-label {
+        position: absolute;
+        top: 11px;
+        left: 12px;
+        z-index: 2;
+        width: auto;
+        label {
+          color: #777777;
+          font-size: rem(15);
+          line-height: lh(18, 15);
+          font-weight: 400;
+          &:before {
+            display: none;
+          }
+          @extend .tk-roboto;
+        }
+      }
+    }
+    .small {
+      margin: 0 0 29px;
+      color: $color-black;
+      opacity: 0.7;
+      font-size: rem(14);
+      line-height: lh(16, 14);
+    }
+    .ant-card.card__book {
+      padding: 14px 24px;
+      margin-top: -60px;
+      border-radius: 2px;
+      box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.04),
+        0 1px 45px 0 rgba(0, 0, 0, 0.08);
+      z-index: 2;
+      @include tabletV() {
+        margin: 0;
+        box-shadow: none;
+        padding: 30px 0 0;
+        order: 2;
+      }
+      &.active {
+        position: fixed;
+        top: 150px;
+      }
+      .DateRangePicker {
+        @include tabletV() {
+          width: 100%;
+          .DateRangePickerInput {
+            width: 100%;
+          }
+        }
+        .DateInput {
+          width: 100%;
+          margin: -3px 0 16px;
+          &:first-child {
+            margin: 0;
+          }
+          input {
+            width: 100%;
+            text-align: left;
+          }
+        }
+        .DateRangePickerInput_arrow {
+          width: 100%;
+          .ant-divider {
+            height: 18px;
+            top: -3px;
+            display: block;
+            margin: auto;
+          }
+        }
+        &_picker {
+          transform: translateX(-100%) translateY(-50%);
+          top: 50% !important;
+          left: -24px !important;
+          @include tabletV() {
+            transform: none;
+            left: 0 !important;
+            top: auto !important;
+          }
+        }
+      }
+      .ant-card-body {
+        padding: 0;
+        h4 {
+          margin: 0;
+          line-height: 1;
+          margin-bottom: 15px;
+        }
+        p:not(.small) {
+          margin: 0;
+          line-height: 1;
+          color: $color-black;
+        }
+      }
+      .ant-divider {
+        margin: 7px 0;
+      }
+      .computation {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        span {
+          color: $color-black;
+          font-weight: 500;
+          @extend .tk-roboto;
+          &:first-child {
+            font-size: rem(16);
+            letter-spacing: -0.36px;
+            line-height: lh(19, 16);
+          }
+          &:last-child {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 28px;
+          }
+        }
+      }
+    }
+    .card__secondary {
+      padding: 28px 18px;
+      margin-top: 26px;
+      @include tabletV() {
+        order: 1;
+        margin-top: 10px;
+      }
+      .ant-card-body {
+        display: flex;
+        padding: 0;
+      }
+      .anticon {
+        font-size: 32px;
+        margin-right: 18px;
+        color: $color-primary;
+      }
+      .small {
+        margin: 0 0 6px;
+      }
+      a {
+        color: $color-secondary;
+        font-size: rem(14);
+        font-weight: 500;
+        line-height: lh(32, 14);
+        @extend .tk-roboto;
+      }
+      &__title {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 10px;
+        span {
+          color: $color-black;
+          font-size: rem(14);
+          font-weight: 500;
+          line-height: lh(16, 14);
+          @extend .tk-roboto;
+        }
+      }
+    }
+  }
+  &__reviews {
+    @include mobile() {
+      padding: 15px 0;
+    }
+    .ant-rate-star-first,
+    .ant-rate-star-second {
+      color: #939393;
+    }
+    .ant-radio-button {
+      display: none !important;
+    }
+    h4 {
+      span {
+        color: #8f969c;
+        @include mobile() {
+          float: right;
+        }
+      }
+    }
+    &__title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include mobile() {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .ant-rate-star {
+        width: 20px;
+      }
+      .ant-rate {
+        margin-top: -4px;
+        margin-right: 6px;
+      }
+      h5,
+      h4 {
+        margin: 0;
+      }
+      h4 {
+        @include mobile() {
+          font-size: rem(22);
+          line-height: lh(27, 22);
+          border-bottom: 1px solid #e6e6e6;
+          padding: 0 0 6px;
+          width: 100%;
+        }
+      }
+      > div {
+        display: flex;
+        align-items: center;
+        @include mobile() {
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+    }
+    .review__card {
+      padding: 0;
+      width: 100%;
+      &__rating {
+        right: 0;
+      }
+      .ant-avatar {
+        margin-top: -18px;
+      }
+      .ant-card {
+        border-width: 0 0 1px;
+        &-body {
+          padding: 23px 0 27px;
+          @include mobile() {
+            min-height: 0;
+          }
+        }
+      }
+    }
+    .ant-radio {
+      &-group {
+        padding: 22px 0;
+        border: 1px solid $color-input-border;
+        border-width: 1px 0;
+        margin-top: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        @include mobile() {
+          margin: 23px 0 0;
+          padding: 0;
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+      }
+      &-button-wrapper {
+        padding: 0;
+        margin: 0 10px;
+        background: none;
+        color: $color-black;
+        padding: 0 10px 3px;
+        border-radius: 14px !important;
+        @include mobile() {
+          border-radius: 0 !important;
+          padding: 8px 24px;
+          margin: 0;
+        }
+        span {
+          font-weight: 500;
+        }
+        &:first-child {
+          margin-left: 0;
+          padding-top: 3px;
+          span {
+            padding-top: 2px;
+            display: block;
+            @include mobile() {
+              padding-top: 10px;
+            }
+          }
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        &-checked,
+        &:hover:not(.ant-radio-button-wrapper-disabled) {
+          background: #eaecef !important;
+        }
+        &-disabled {
+          border-color: #d9d9d9 !important;
+          background-color: #f5f5f5 !important;
+          color: rgba(0, 0, 0, 0.25) !important;
+        }
+      }
+    }
+  }
+  &__rules {
+    margin: 56px -12px 46px;
+    padding: 22px 24px 0;
+    background: $color-footer-bg;
+    @include mobile() {
+      margin: 56px -15px 46px;
+      padding: 22px 15px 0;
+    }
+    h4 {
+      margin: 0 0 7px;
+      line-height: lh(48, 28);
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      @include mobile() {
+        flex-direction: column;
+      }
+      li {
+        flex: 1 0 50%;
+        position: relative;
+        font-size: rem(16);
+        line-height: lh(28, 16);
+        max-width: 50%;
+        padding: 0 23px 28px 26px;
+        color: $color-paragraph;
+        @include mobile() {
+          max-width: 100%;
+          padding-right: 0;
+          padding-left: 16px;
+        }
+        &:before {
+          width: 5px;
+          height: 5px;
+          background: $color-secondary;
+          left: 0;
+          top: 10px;
+          @include pseudo();
+        }
+      }
+    }
+  }
+  &__area {
+    margin: 0 0 37px;
+    @include mobile() {
+      padding: 0;
+    }
+    h4 {
+      margin: 0;
+      line-height: lh(48, 28);
+    }
+    p {
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .similar-properties {
+    margin-top: 40px;
+    @include mobile() {
+      margin: 0;
+      padding-right: 0;
+      margin-right: -15px;
+    }
+  }
+}
+
+#book-monthly-form,
+#book-weekly-form,
+#login-popup-form,
+#amend-booking-form,
+#cancel-booking-form {
+  display: none;
+  width: 420px;
+  padding: 14px 24px 32px;
+  border-radius: 2px;
+  .fancybox-close-small {
+    display: none;
+  }
+  h4 {
+    margin: 0;
+  }
+  p {
+    margin: 0 0 33px;
+  }
+  .ant-form-item {
+    margin-bottom: 36px;
+  }
+  .element {
+    &.radio {
+      margin-bottom: 42px;
+    }
+    &.textarea {
+      margin: 53px 0 0;
+    }
+  }
+}
+
+#login-popup-form {
+  // width: 420px;
+  // margin: auto;
+  // display: block;
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.04), 0 1px 45px 0 rgba(0, 0, 0, 0.08);
+  h4 {
+    margin: 0;
+  }
+  .ant-divider-horizontal.ant-divider-with-text {
+    margin: 23px 0 6px;
+  }
+  .control-label {
+    font-size: rem(12);
+    line-height: lh(14, 12);
+    font-weight: 400;
+    color: $color-black;
+    @extend .tk-roboto;
+  }
+  .ccm-error {
+    list-style: none;
+    li {
+      font-weight: 400;
+      @extend .tk-roboto;
+    }
+  }
+  .remember-me,
+  .forgot-password {
+    margin: 16px 0 24px;
+    float: left;
+  }
+  .forgot-password {
+    float: right;
+  }
+  .btn-login,
+  .btn-register,
+  .btn-reset-password {
+    width: 100%;
+    display: block;
+    height: 48px;
+  }
+  .btn-reset-password {
+    margin: 16px 0 0;
+  }
+  .btn-register {
+    line-height: 2;
+    margin: 25px 0 15px;
+  }
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  .ant-btn-social {
+    padding: 8px;
+    flex: 1;
+    color: $color-white;
+    text-align: left;
+    img {
+      margin-right: 31px;
+      @include mobile() {
+        margin-right: 10px;
+      }
+    }
+    &-fb {
+      background: $color-fb-button;
+      margin-right: 2%;
+    }
+    &-google {
+      background: $color-google-button;
+    }
+  }
+}
+
+.gallery-modal--overlay {
+  background-color: #000711 !important;
+  opacity: 0.96 !important;
+}
+.gallery-figcaption--thumbnails
+  .caption-thumbnails
+  ul.thumbnails-list
+  li
+  img.thumbnail {
+  border-radius: 1px;
+  padding: 0;
+}
+
+.property {
+  &__featured .property__card {
+    .ant-card-cover img {
+      min-height: 340px;
+      @include tabletV() {
+        min-height: 233.72px;
+      }
+    }
+  }
+}

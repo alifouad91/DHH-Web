@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * Users in Concrete can be grouped together, and entire groups can be given permissions to do certain things.
+ *
+ * @author Andrew Embler <andrew@concrete5.org>
+ *
+ * @category Concrete
+ *
+ * @copyright  Copyright (c) 2003-2008 Concrete5. (http://www.concrete5.org)
+ * @license    http://www.concrete5.org/license/     MIT License
+ */
+defined('C5_EXECUTE') or die('Access Denied.');
+
+class Group extends Concrete5_Model_Group
+{
+
+
+    public static function getAllGroupsArray()
+    {
+        $db    = Loader::db();
+        $query = "select gID , gName ,gDescription from Groups";
+        /** @var ADORecordSet $rows */
+        $rows = $db->Execute($query);
+        $arr  = [];
+        foreach ($rows as $row) {
+            $arr[$row['gID']] = $row['gName'];
+        }
+        return $arr;
+    }
+
+}
+
+class GroupList extends Concrete5_Model_GroupList
+{
+}
